@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="text_button_send">Send</string>
+    <string name="text_transmitter">Enter Link :</string>
+    <string name="boutton_main_transmitter">Transmitter</string>
+    <string name="button_main_host">Host</string>
+</resources>

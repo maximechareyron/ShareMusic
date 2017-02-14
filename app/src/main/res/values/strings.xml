@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LecteurMusique</string>
+    <string name="text_button_send">Envoyer</string>
+    <string name="text_transmitter">Saisir Lien :</string>
+    <string name="boutton_main_transmitter">Emetteur</string>
+    <string name="button_main_host">Hébergeur</string>
+</resources>
