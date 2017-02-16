@@ -4,4 +4,6 @@
     <string name="text_transmitter">Saisir Lien :</string>
     <string name="boutton_main_transmitter">Emetteur</string>
     <string name="button_main_host">Hébergeur</string>
+    <string name="connected_list">Liste connecté(s)</string>
+    <string name="refresh">Rafraichir</string>
 </resources>

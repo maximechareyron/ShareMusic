@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EmetteurActivity"></activity>
+        <activity android:name=".EmetteurActivity" />
+        <activity android:name=".HebergeurActivity"></activity>
     </application>
 
 </manifest>

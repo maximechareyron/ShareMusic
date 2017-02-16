@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button emetteur;
+    Button hebergeur;
 
 
     @Override
@@ -21,6 +22,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, EmetteurActivity.class));
+
+            }
+        });
+
+        hebergeur = (Button) findViewById(R.id.hebergeur);
+        hebergeur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, HebergeurActivity.class));
 
             }
         });
