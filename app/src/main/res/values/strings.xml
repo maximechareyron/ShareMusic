@@ -6,4 +6,5 @@
     <string name="button_main_host">Hébergeur</string>
     <string name="connected_list">Liste connecté(s)</string>
     <string name="refresh">Rafraichir</string>
+    <string name="text_button_play">Lecture</string>
 </resources>
