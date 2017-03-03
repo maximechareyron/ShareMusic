@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "594731671586",
+    "firebase_url": "https://sharemusic-da883.firebaseio.com",
+    "project_id": "sharemusic-da883",
+    "storage_bucket": "sharemusic-da883.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594731671586:android:9df17d876d858a57",
+        "android_client_info": {
+          "package_name": "com.example.olmartin2.lecteurmusique"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594731671586-gm171vb14aqtphl9ppefcgkgipkq8ru2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.olmartin2.lecteurmusique",
+            "certificate_hash": "8c369b2892284a4156aab0d90a6d42ff12cab6f6"
+          }
+        },
+        {
+          "client_id": "594731671586-0trvl8bri7jg3t3b0bebtc7fihh79p0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbLdJkA0FYohV7K6a34Qy8rRUSSu7ZWwM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594731671586-0trvl8bri7jg3t3b0bebtc7fihh79p0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
