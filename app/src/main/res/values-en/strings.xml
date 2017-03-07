@@ -32,4 +32,8 @@
     <string name="btn_sign_out">Sign Out</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="btn_login">Sign In</string>
+    <string name="missing_email">Entrer email adress!</string>
+    <string name="missing_password">Enter password!</string>
+    <string name="lbl_forgot_password">Forgot your password ?</string>
+    <string name="btn_back" translatable="false"><![CDATA[<< Back]]></string>
 </resources>

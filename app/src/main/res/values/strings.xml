@@ -22,11 +22,10 @@
     <string name="hint_password">Mot de passe</string>
     <string name="hint_name">Nom complet</string>
     <string name="btn_link_to_register">Pas encore membre ? Créez un compte maintenant !</string>
-    <string name="btn_link_to_login">J\'ai déjà un compte! Se connecter!</string>
+    <string name="btn_link_to_login">J\'ai déjà un compte, me connecter!</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="btn_forgot_password">Mot de passe oublié ?</string>
     <string name="btn_reset_password">Réinitialiser le mot de passe</string>
-    <string name="btn_back"><![CDATA[<< Back]]></string>
     <string name="hint_new_email">Nouvelle adresse mail</string>
     <string name="btn_change">Changer</string>
     <string name="btn_send">Envoyer</string>
@@ -34,6 +33,10 @@
     <string name="btn_sign_out">Déconnexion</string>
     <string name="forgot_password_msg">Nous avons juste besoin l\'adresse e-mail associée à votre compte pour vous envoyer les instructions de réinitialisation de votre mot de passe.</string>
     <string name="btn_login">Se connecter</string>
+    <string name="missing_email">Saisir une adresse e-mail !</string>
+    <string name="missing_password">Saisir un mot de passe !</string>
+    <string name="lbl_forgot_password">Mot de passe oublié ?</string>
+    <string name="btn_back"><![CDATA[<< Revenir en arrière]]></string>
 
 
 </resources>
