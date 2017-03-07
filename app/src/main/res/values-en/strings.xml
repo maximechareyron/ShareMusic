@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MusicPlayer</string>
+    <string name="app_name">Share Music</string>
     <string name="text_button_send">Send</string>
     <string name="text_transmitter">Enter Link :</string>
     <string name="boutton_main_transmitter">Transmitter</string>
@@ -8,4 +8,28 @@
     <string name="connected_list">Connected users</string>
     <string name="refresh">Refresh</string>
     <string name="text_button_play">Play</string>
+    <string name="email">Email</string>
+    <string name="minimum_password">Password too short, en ter minimum 6 characters!</string>
+    <string name="action_sign_in_short">Register</string>
+    <string name="auth_failed">Authentication failed. Check your email and password opr sign up!</string>
+    <string name="change_email">change_email</string>
+    <string name="change_password">Change password</string>
+    <string name="send_password_reset_email">Send Password reset email</string>
+    <string name="remove_user">Remove user</string>
+    <string name="new_password">New password</string>
+    <string name="title_activity_login">Log In</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="btn_link_to_register">Not a member? Get registered now!</string>
+    <string name="btn_link_to_login">Already registered. Login Me!</string>
+    <string name="btn_forgot_password">Forgot password?</string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="hint_new_email">New Email</string>
+    <string name="btn_change">Change</string>
+    <string name="btn_send">Send</string>
+    <string name="btn_remove">Remove</string>
+    <string name="btn_sign_out">Sign Out</string>
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+    <string name="btn_login">Sign In</string>
 </resources>
