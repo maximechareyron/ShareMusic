@@ -34,7 +34,7 @@
         android:id="@+id/list_music"
         >
     </android.support.v7.widget.RecyclerView>
-
+<!--
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,14 +44,14 @@
         android:layout_centerHorizontal="true"/>
 
     <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/seekBar"
         android:layout_below="@id/list_music"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:minWidth="400dp"
-        android:maxHeight="20dp"
+        android:maxHeight="10dp"
         android:layout_above="@id/stop_play_button"
         />
 
@@ -78,7 +78,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:id="@+id/previous_button"/>
-
+-->
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
 
 
 

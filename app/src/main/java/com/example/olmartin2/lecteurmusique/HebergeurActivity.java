@@ -6,17 +6,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class HebergeurActivity extends AppCompatActivity {
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
-    Button stop_play_button;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
+
+    //Button stop_play_button;
+    private YouTubePlayerView youtubeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
-        stop_play_button = (Button) findViewById(R.id.stop_play_button);
+        //stop_play_button = (Button) findViewById(R.id.stop_play_button);
+        youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
+        youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
 
+        /*
         stop_play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,5 +40,25 @@ public class HebergeurActivity extends AppCompatActivity {
 
             }
         });
+        */
     }
+
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+        List<String> playlist = new ArrayList<>();
+        playlist.add("GRxofEmo3HA");
+        playlist.add("Rb0UmrCXxVA");
+
+        if(!b){
+            youTubePlayer.cueVideos(playlist);
+        }
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+    }
+
+
 }
