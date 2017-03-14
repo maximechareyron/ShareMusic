@@ -1,8 +1,8 @@
 <resources>
-    <string name="api_key">AIzaSyA7iJumNmqgAfQHNAB3AbPf3jYN9h1nQXI</string>
+    <string name="api_key" translatable="false">AIzaSyA7iJumNmqgAfQHNAB3AbPf3jYN9h1nQXI</string>
     <string name="app_name">Share Music</string>
     <string name="text_button_send">Envoyer</string>
-    <string name="text_transmitter">Saisir Lien :</string>
+    <string name="text_transmitter">Saisir nom :</string>
     <string name="boutton_main_transmitter">Emetteur</string>
     <string name="button_main_host">Hébergeur</string>
     <string name="connected_list">Liste connecté(s)</string>
@@ -11,7 +11,7 @@
     <string name="action_sign_in_short">Créer un compte</string>
     <string name="email">Adresse e-mail</string>
     <string name="minimum_password">Mot de passe trop court. Veuillez entrer au minimum 6 caractères</string>
-    <string name="auth_failed">L\'authentification a échoué. Vérifiez votre adresse e-mail et votre mot de passe.ou créez un compte !</string>
+    <string name="auth_failed">L\'authentification a échoué. Vérifiez votre adresse e-mail et votre mot de passe ou créez un compte !</string>
     <string name="change_email">Changer d\'adresse e-mail</string>
     <string name="change_password">Changer de mot de passe</string>
     <string name="send_password_reset_email">Envoyer un lien de réccupération de mot de passe par email</string>
@@ -27,22 +27,35 @@
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="btn_forgot_password">Mot de passe oublié ?</string>
     <string name="btn_reset_password">Réinitialiser le mot de passe</string>
-    <string name="hint_new_email">Nouvelle adresse mail</string>
-    <string name="btn_change">Changer</string>
-    <string name="btn_send">Envoyer</string>
-    <string name="btn_remove">Supprimer</string>
+    <string name="hint_new_email">Nouvelle adresse e-mail</string>
+    <string name="btn_change_email">Changer l\'adresse e-mail</string>
+    <string name="btn_change_password">Changer le mot de passe</string>
+    <string name="btn_send">Réccupérer le mot de passe</string>
+    <string name="btn_remove">Supprimer le compte</string>
     <string name="btn_sign_out">Déconnexion</string>
     <string name="forgot_password_msg">Nous avons juste besoin l\'adresse e-mail associée à votre compte pour vous envoyer les instructions de réinitialisation de votre mot de passe.</string>
     <string name="btn_login">Se connecter</string>
     <string name="missing_email">Saisir une adresse e-mail !</string>
     <string name="missing_password">Saisir un mot de passe !</string>
     <string name="lbl_forgot_password">Mot de passe oublié ?</string>
-    <string name="btn_back"><![CDATA[<< Revenir en arrière]]></string>
 
 
-    <string name="player_error">Error initializing YouTube player: %s</string>
-    <string name="seek_to">Jump To</string>
-    <string name="seek_to_hint">Seconds</string>
+    <string name="player_error">Erreur d\'initialisation du player YouTube : %s</string>
+    <string name="seek_to">Aller à</string>
+    <string name="seek_to_hint">Secondes</string>
+    <string name="prompt_password">Mot de passe courant</string>
+    <string name="btn_back"><![CDATA[<< Revenir en Arrière]]></string>
+    <string name="btn_change">Changer</string>
+    <string name="email_update">Votre adresse e-mail a bien été mise à jour. Reconnectez vous avec la nouvelle e-mail.</string>
+    <string name="email_update_fail">Impossible de mettre à jour l\'adresse e-mail !</string>
+    <string name="input_email">Entrez l\' e-mail</string>
+    <string name="password_update">Le mot de passe a bien été mis à jour. Reconnectez vous avec le nouveau mot de passe.</string>
+    <string name="password_update_fail">Impossible de mettre à jour le mot de passe.</string>
+    <string name="input_password">Entrez le mot de passe.</string>
+    <string name="reset_pwd_email_sent">L\'e-mail de réinitialisation de mot de passe vient de vous être envoyé.</string>
+    <string name="reset_pwd_email_fail">Echec : L\'e-mail de réinitialisation du mot de passe n\'a pas été envoyé</string>
+    <string name="profile_deleted">Votre compte a bien été supprimé !</string>
+    <string name="profile_deleted_fail">Impossible de supprimer votre compte. Réessayez ultèrieurement</string>
 
 
 </resources>

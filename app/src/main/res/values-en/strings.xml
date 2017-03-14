@@ -9,9 +9,9 @@
     <string name="refresh">Refresh</string>
     <string name="text_button_play">Play</string>
     <string name="email">Email</string>
-    <string name="minimum_password">Password too short, en ter minimum 6 characters!</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="action_sign_in_short">Register</string>
-    <string name="auth_failed">Authentication failed. Check your email and password opr sign up!</string>
+    <string name="auth_failed">Authentication failed. Check your email and password or sign up!</string>
     <string name="change_email">change_email</string>
     <string name="change_password">Change password</string>
     <string name="send_password_reset_email">Send Password reset email</string>
@@ -35,5 +35,21 @@
     <string name="missing_email">Entrer email adress!</string>
     <string name="missing_password">Enter password!</string>
     <string name="lbl_forgot_password">Forgot your password ?</string>
-    <string name="btn_back" translatable="false"><![CDATA[<< Back]]></string>
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="prompt_password">Current password</string>
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+    <string name="btn_change_email">Change email adress</string>
+    <string name="btn_change_password">Change password</string>
+    <string name="seek_to">Jump to</string>
+    <string name="seek_to_hint">Seconds</string>
+    <string name="email_update">Email address is updated. Please sign in with new email id!</string>
+    <string name="email_update_fail">Failed to update email!</string>
+    <string name="input_email">Enter e-mail</string>
+    <string name="password_update">Password is updated. Sign in with new password.</string>
+    <string name="password_update_fail">Failed to update password</string>
+    <string name="input_password">Enter password</string>
+    <string name="reset_pwd_email_sent">Reset password e-mail is sent</string>
+    <string name="reset_pwd_email_fail">Failed to send reset email!</string>
+    <string name="profile_deleted">Profile was successfully deleted!</string>
+    <string name="profile_deleted_fail">Failed to delete your account. Try again later!</string>
 </resources>
