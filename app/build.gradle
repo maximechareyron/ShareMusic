@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.example.olmartin2.lecteurmusique"
@@ -33,7 +33,9 @@ dependencies {
     compile 'com.android.support:design:25.1.1'
     compile 'com.google.firebase:firebase-auth:10.0.1'
     //compile 'com.google.apis:google-api-services-youtube:v3-rev182-1.22.0'
-    compile files('libs/YouTubeAndroidPlayerApi.jar')
+    
+    compile 'com.google.apis:google-api-services-youtube:v3-rev179-1.22.0'
+    compile 'com.google.apis:google-api-services-youtubeAnalytics:v1-rev63-1.22.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

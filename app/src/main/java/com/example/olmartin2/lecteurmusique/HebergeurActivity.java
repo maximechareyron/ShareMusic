@@ -1,5 +1,6 @@
 package com.example.olmartin2.lecteurmusique;
 
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,10 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+
+
+import com.google.api.services.youtube.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +49,16 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     }
 
 
+
+
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         List<String> playlist = new ArrayList<>();
         playlist.add("GRxofEmo3HA");
         playlist.add("Rb0UmrCXxVA");
+
+        YouTubeBaseActivity y = new YouTubeBaseActivity();
+
 
         if(!b){
             youTubePlayer.cueVideos(playlist);
