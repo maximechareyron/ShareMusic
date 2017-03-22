@@ -56,6 +56,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         List<String> playlist = new ArrayList<>();
         playlist.add("GRxofEmo3HA");
         playlist.add("Rb0UmrCXxVA");
+        playlist.add("Zi8vJ_lMxQI");
 
         YouTubeBaseActivity y = new YouTubeBaseActivity();
 

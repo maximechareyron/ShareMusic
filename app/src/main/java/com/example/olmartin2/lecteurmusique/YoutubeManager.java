@@ -1,6 +1,9 @@
 package com.example.olmartin2.lecteurmusique;
 
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.HttpTransport;
@@ -33,7 +36,7 @@ public class YoutubeManager {
  //   private static final String PROPERTIES_FILENAME = Config.YOUTUBE_API_KEY;
 
 
-    public static void manage(){
+    public void manage(){
 
         //String apiKey = Config.YOUTUBE_API_KEY;
 
@@ -48,7 +51,7 @@ public class YoutubeManager {
             }).setApplicationName("youtube-cmdline-search-sample").build();
 
 
-            String queryTerm = "YouTube Developers Live";
+            String queryTerm = "mozart";
 
             YouTube.Search.List search = youTube.search().list("id,snippet");
 
@@ -58,20 +61,31 @@ public class YoutubeManager {
 
 
 
-           // search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
+            search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
             search.setMaxResults(NUMBER_OF_VIDEOS_RETURNED);
 
-            System.out.println("appel");
-            SearchListResponse searchResponse = search.execute();
-            System.out.println("fin appel");
+
+
+            Log.d("appel","");
+            SearchListResponse searchResponse = null;
+            try {
+                searchResponse = search.execute();
+            } catch (Exception e) {
+                String truc = "dazdza";
+            }
+            Log.d("fin appel","");
+
+            if (searchResponse == null) {
+                return;
+            }
 
             List<SearchResult> searchListResponse = searchResponse.getItems();
 
 
             List<SearchResult> searchResultList = searchResponse.getItems();
             if (searchResultList != null) {
-                //prettyPrint(searchResultList.iterator(), queryTerm);
-                System.out.println("liste avec des elements");
+                prettyPrint(searchResultList.iterator(), queryTerm);
+                Log.d("liste avec des elements","");
             }
 
 
