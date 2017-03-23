@@ -36,9 +36,10 @@ public class YoutubeManager {
  //   private static final String PROPERTIES_FILENAME = Config.YOUTUBE_API_KEY;
 
 
-    public void manage(){
+    public void manage(String queryTerm){
 
         //String apiKey = Config.YOUTUBE_API_KEY;
+        //queryTerm = "dvorak 9eme symphonie";
 
 
         try {
@@ -51,7 +52,6 @@ public class YoutubeManager {
             }).setApplicationName("youtube-cmdline-search-sample").build();
 
 
-            String queryTerm = "mozart";
 
             YouTube.Search.List search = youTube.search().list("id,snippet");
 
@@ -68,11 +68,9 @@ public class YoutubeManager {
 
             Log.d("appel","");
             SearchListResponse searchResponse = null;
-            try {
-                searchResponse = search.execute();
-            } catch (Exception e) {
-                String truc = "dazdza";
-            }
+
+            searchResponse = search.execute();
+
             Log.d("fin appel","");
 
             if (searchResponse == null) {
@@ -85,7 +83,7 @@ public class YoutubeManager {
             List<SearchResult> searchResultList = searchResponse.getItems();
             if (searchResultList != null) {
                 prettyPrint(searchResultList.iterator(), queryTerm);
-                Log.d("liste avec des elements","");
+
             }
 
 
@@ -133,7 +131,7 @@ public class YoutubeManager {
             if (rId.getKind().equals("youtube#video")) {
                 Thumbnail thumbnail = singleVideo.getSnippet().getThumbnails().getDefault();
 
-                System.out.println(" Video Id" + rId.getVideoId());
+                System.out.println(" Video Id : " + rId.getVideoId());
                 System.out.println(" Title: " + singleVideo.getSnippet().getTitle());
                 System.out.println(" Thumbnail: " + thumbnail.getUrl());
                 System.out.println("\n-------------------------------------------------------------\n");

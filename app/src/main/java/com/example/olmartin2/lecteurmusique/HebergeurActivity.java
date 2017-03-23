@@ -4,6 +4,7 @@ package com.example.olmartin2.lecteurmusique;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,28 +25,21 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
     //Button stop_play_button;
     private YouTubePlayerView youtubeView;
+    RecyclerView playlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
-        //stop_play_button = (Button) findViewById(R.id.stop_play_button);
         youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
 
-        /*
-        stop_play_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(stop_play_button.getText().equals("stop")){
-                    stop_play_button.setText("lecture");
-                }
-                else stop_play_button.setText("stop");
+        playlist = (RecyclerView) findViewById(R.id.recyclerView);
 
-            }
-        });
-        */
+
+
+
     }
 
 

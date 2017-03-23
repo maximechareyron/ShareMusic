@@ -56,6 +56,8 @@
     <string name="reset_pwd_email_fail">Echec : L\'e-mail de réinitialisation du mot de passe n\'a pas été envoyé</string>
     <string name="profile_deleted">Votre compte a bien été supprimé !</string>
     <string name="profile_deleted_fail">Impossible de supprimer votre compte. Réessayez ultèrieurement</string>
+    <string name="title_activity_youtube_hebergeur_fragment">YoutubeHebergeurFragment</string>
+    <string name="action_settings">Settings</string>
 
 
 </resources>
