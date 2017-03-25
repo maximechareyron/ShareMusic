@@ -1,8 +1,6 @@
 package com.example.olmartin2.lecteurmusique;
 
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,24 +12,25 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 
-import com.google.api.services.youtube.*;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
-    //Button stop_play_button;
     private YouTubePlayerView youtubeView;
     Button createPlaylistButton;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference dbRef = database.getReference("users");
 
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private Host h;
 
     RecyclerView playlist;
 
@@ -40,19 +39,23 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
-        //stop_play_button = (Button) findViewById(R.id.stop_play_button);
-        youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
-        youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
+        h = new Host("maxiaus");
+
+        h.addTitle("GRxofEmo3HA");
+        h.addTitle("Rb0UmrCXxVA");
+        h.addTitle("Zi8vJ_lMxQI");
+
+
 
         createPlaylistButton = (Button) findViewById(R.id.create_playlist);
         createPlaylistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myRef.setValue("Hello, World!");
+                dbRef.child(user.getUid()).setValue(h);
             }
         });
 
-        playlist = (RecyclerView) findViewById(R.id.recyclerView);
+        //playlist = (RecyclerView) findViewById(R.id.recyclerView);
 
 
 
