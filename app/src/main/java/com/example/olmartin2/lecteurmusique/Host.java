@@ -1,12 +1,7 @@
 package com.example.olmartin2.lecteurmusique;
 
-import android.support.annotation.NonNull;
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * Created by Maxime on 3/25/2017.
@@ -16,7 +11,9 @@ public class Host {
 
 
     private String pseudo;
-    private List<String> playlist = new ArrayList<>();
+
+    private List<String> playlistLink = new ArrayList<>();
+    private List<String> playlistTitle = new ArrayList<>();
 
     private List<String> guests = new ArrayList<>();
 
@@ -34,15 +31,15 @@ public class Host {
         return pseudo;
     }
 
-    public List<String> getPlaylist() {
-        return playlist;
+    public List<String> getTitles() {
+        return playlistTitle;
     }
+
+    public List<String> getLinks(){ return playlistLink; }
 
     public List<String> getGuests() {
         return guests;
     }
-
-
 
     public void addGuest(String t){
         guests.add(t);
@@ -52,16 +49,41 @@ public class Host {
         guests.remove(t);
     }
 
-
-    public void addTitle(String t){
-        playlist.add(t);
+    /**
+     * Enqueues a song to the playlist of the Host
+     * @param link YouTube link of the song
+     * @param title Title of the song
+     * @throws Exception whenever the link or the title of the song is empty ;
+     */
+    public void enqueueSong(String link, String title) throws Exception {
+        if(link.isEmpty() || title.isEmpty()){
+            throw new Exception("Link can't be empty");
+        }
+        playlistLink.add(link);
+        playlistTitle.add(title);
     }
 
-    public String nextTitle(){
-        if(playlist.size()==0)
+    /**
+     *
+     * @return The title of the upcoming song
+     */
+    public String upcomingTitle(){
+        if(playlistTitle.size()==0)
             return "";
-        String s = playlist.get(0);
-        playlist.remove(0);
+        String s = playlistTitle.get(0);
+        return s;
+    }
+
+    /**
+     * Get the next song and pops it from both lists.
+     * @return link of the next title to be played
+     */
+    public String nextTitle(){
+        if(playlistLink.size()==0)
+            return "";
+        String s = playlistLink.get(0);
+        playlistLink.remove(0);
+        playlistTitle.remove(0);
         return s;
     }
 
