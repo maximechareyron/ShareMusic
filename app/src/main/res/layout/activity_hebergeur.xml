@@ -86,10 +86,14 @@
         android:id="@+id/previous_button"/>
 -->
     <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtube_view"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 

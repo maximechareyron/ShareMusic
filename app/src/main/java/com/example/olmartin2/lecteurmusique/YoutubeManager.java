@@ -1,6 +1,9 @@
 package com.example.olmartin2.lecteurmusique;
 
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.HttpTransport;
@@ -33,9 +36,10 @@ public class YoutubeManager {
  //   private static final String PROPERTIES_FILENAME = Config.YOUTUBE_API_KEY;
 
 
-    public static void manage(){
+    public void manage(String queryTerm){
 
         //String apiKey = Config.YOUTUBE_API_KEY;
+        //queryTerm = "dvorak 9eme symphonie";
 
 
         try {
@@ -48,7 +52,6 @@ public class YoutubeManager {
             }).setApplicationName("youtube-cmdline-search-sample").build();
 
 
-            String queryTerm = "YouTube Developers Live";
 
             YouTube.Search.List search = youTube.search().list("id,snippet");
 
@@ -58,20 +61,29 @@ public class YoutubeManager {
 
 
 
-           // search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
+            search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
             search.setMaxResults(NUMBER_OF_VIDEOS_RETURNED);
 
-            System.out.println("appel");
-            SearchListResponse searchResponse = search.execute();
-            System.out.println("fin appel");
+
+
+            Log.d("appel","");
+            SearchListResponse searchResponse = null;
+
+            searchResponse = search.execute();
+
+            Log.d("fin appel","");
+
+            if (searchResponse == null) {
+                return;
+            }
 
             List<SearchResult> searchListResponse = searchResponse.getItems();
 
 
             List<SearchResult> searchResultList = searchResponse.getItems();
             if (searchResultList != null) {
-                //prettyPrint(searchResultList.iterator(), queryTerm);
-                System.out.println("liste avec des elements");
+                prettyPrint(searchResultList.iterator(), queryTerm);
+
             }
 
 
@@ -119,7 +131,7 @@ public class YoutubeManager {
             if (rId.getKind().equals("youtube#video")) {
                 Thumbnail thumbnail = singleVideo.getSnippet().getThumbnails().getDefault();
 
-                System.out.println(" Video Id" + rId.getVideoId());
+                System.out.println(" Video Id : " + rId.getVideoId());
                 System.out.println(" Title: " + singleVideo.getSnippet().getTitle());
                 System.out.println(" Thumbnail: " + thumbnail.getUrl());
                 System.out.println("\n-------------------------------------------------------------\n");
