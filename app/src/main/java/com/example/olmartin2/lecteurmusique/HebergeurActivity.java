@@ -14,6 +14,8 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 
 import com.google.api.services.youtube.*;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
@@ -24,9 +26,16 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
     //Button stop_play_button;
     private YouTubePlayerView youtubeView;
+    Button createPlaylistButton;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
@@ -34,6 +43,13 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
 
+        createPlaylistButton = (Button) findViewById(R.id.create_playlist);
+        createPlaylistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myRef.setValue("Hello, World!");
+            }
+        });
         /*
         stop_play_button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,6 +3,7 @@ package com.example.olmartin2.lecteurmusique;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,9 +23,10 @@ public class EmetteurActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                System.out.println("appel Youtube Manage");
+                Log.d("SYSO", "appel Youtube Manage");
                 YoutubeManager.manage();
-                System.out.println("FIN Youtube manage");
+                Log.d("SYSO", "FIN Youtube manage");
+
             }
         });
     }
