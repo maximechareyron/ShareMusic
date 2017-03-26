@@ -27,67 +27,24 @@
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_below="@id/refresh"
         android:layout_alignParentLeft="true"
         android:id="@+id/list_music"
         >
+
     </android.support.v7.widget.RecyclerView>
-<!--
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/stop_play_button"
-        android:text="@string/text_button_play"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/seekBar"
-        android:layout_below="@id/list_music"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:minWidth="400dp"
-        android:maxHeight="10dp"
-        android:layout_above="@id/stop_play_button"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/seekBar"
-        android:text="Musique en cours"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="next"
-        android:layout_below="@id/seekBar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/next_button"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="previous"
-        android:layout_below="@id/seekBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/previous_button"/>
--->
     <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/youtube_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <!--<fragment-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
 
 
 

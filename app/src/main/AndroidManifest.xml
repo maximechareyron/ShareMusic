@@ -23,10 +23,6 @@
         </activity>
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".ManageAccActivity" />
-        <activity
-            android:name=".YoutubeHebergeurFragment"
-            android:label="@string/title_activity_youtube_hebergeur_fragment"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
