@@ -1,8 +1,6 @@
 package com.example.olmartin2.lecteurmusique;
 
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,17 +13,19 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 
-import com.google.api.services.youtube.*;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
-    //Button stop_play_button;
     private YouTubePlayerView youtubeView;
+<<<<<<< HEAD
     static RecyclerView recyclerView ;
     //Liste qui aura tous les ID des videos utilisé par player
     static List<String> playlistID = new ArrayList<>();
@@ -34,16 +34,50 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
     public Button refreshButton;
     static YouTubePlayer player;
+=======
+    Button createPlaylistButton;
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference dbRef = database.getReference("users");
+
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private Host h;
+
+    RecyclerView playlist;
+>>>>>>> 43821c1b9064e2fa12a29e610671565efabecc23
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
-        youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
-        youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
+        h = new Host("maxiaus");
 
+        try{
+            h.enqueueSong("GRxofEmo3HA", "Four Seasons ~ Vivaldi");
+            h.enqueueSong("Rb0UmrCXxVA","Le Meilleur de Mozart");
+            h.enqueueSong("Zi8vJ_lMxQI", "Mozart - Requiem");
+            h.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
+        }
+        catch (Exception e){
+
+        }
+
+
+
+        createPlaylistButton = (Button) findViewById(R.id.create_playlist);
+        createPlaylistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbRef.child(user.getUid()).setValue(h);
+            }
+        });
+
+<<<<<<< HEAD
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
+=======
+        //playlist = (RecyclerView) findViewById(R.id.recyclerView);
+>>>>>>> 43821c1b9064e2fa12a29e610671565efabecc23
 
         // Ici on instancie des videos pour le player Youtube, c'est ici qu'il faudra
         // recevoir les vidéos avec firebase et les ajouter aux 2 listes

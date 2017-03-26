@@ -25,6 +25,12 @@
         android:text="@string/refresh"
         android:id="@+id/refresh" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_create_playlist"
+        android:id="@+id/create_playlist" />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -33,19 +39,31 @@
         android:layout_alignParentLeft="true"
         android:id="@+id/list_music"
         >
+<<<<<<< HEAD
 
     </android.support.v7.widget.RecyclerView>
 
+=======
+    </android.support.v7.widget.RecyclerView>
+>>>>>>> 43821c1b9064e2fa12a29e610671565efabecc23
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
+<<<<<<< HEAD
 
     <!--<fragment-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent"/>-->
 
+=======
+<!--
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+-->
+>>>>>>> 43821c1b9064e2fa12a29e610671565efabecc23
 
 
 </RelativeLayout>

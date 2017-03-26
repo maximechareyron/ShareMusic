@@ -52,4 +52,5 @@
     <string name="reset_pwd_email_fail">Failed to send reset email!</string>
     <string name="profile_deleted">Profile was successfully deleted!</string>
     <string name="profile_deleted_fail">Failed to delete your account. Try again later!</string>
+    <string name="button_create_playlist">Create a playlist</string>
 </resources>

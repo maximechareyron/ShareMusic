@@ -36,7 +36,7 @@ public class EmetteurActivity extends AppCompatActivity {
                 final YoutubeManager youtubeManager = new YoutubeManager();
 
                 Context context = getApplicationContext();
-                CharSequence text = "Vous n'avez pas saisie de titre.";
+                CharSequence text = "Vous n'avez pas saisi de titre.";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
 
