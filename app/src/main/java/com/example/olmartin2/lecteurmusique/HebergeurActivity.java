@@ -25,7 +25,7 @@ import java.util.List;
 public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
     private YouTubePlayerView youtubeView;
-<<<<<<< HEAD
+
     static RecyclerView recyclerView ;
     //Liste qui aura tous les ID des videos utilisé par player
     static List<String> playlistID = new ArrayList<>();
@@ -34,7 +34,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
     public Button refreshButton;
     static YouTubePlayer player;
-=======
+
     Button createPlaylistButton;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -43,8 +43,6 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private Host h;
 
-    RecyclerView playlist;
->>>>>>> 43821c1b9064e2fa12a29e610671565efabecc23
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +71,9 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
             }
         });
 
-<<<<<<< HEAD
+
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
-=======
-        //playlist = (RecyclerView) findViewById(R.id.recyclerView);
->>>>>>> 43821c1b9064e2fa12a29e610671565efabecc23
+
 
         // Ici on instancie des videos pour le player Youtube, c'est ici qu'il faudra
         // recevoir les vidéos avec firebase et les ajouter aux 2 listes
