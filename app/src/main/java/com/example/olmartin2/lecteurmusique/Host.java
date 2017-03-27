@@ -29,19 +29,41 @@ public class Host {
         this.pseudo = pseudo;
     }
 
+    public Host(String pseudo, List<String> playlistLink, List<String> playlistTitle, List<String> guests) {
+        this.pseudo = pseudo;
+        this.playlistLink = playlistLink;
+        this.playlistTitle = playlistTitle;
+        this.guests = guests;
+    }
 
     public String getPseudo() {
         return pseudo;
     }
 
-    public List<String> getTitles() {
+    public List<String> getPlaylistTitle() {
         return playlistTitle;
     }
 
-    public List<String> getLinks(){ return playlistLink; }
+    public List<String> getPlaylistLink(){ return playlistLink; }
 
     public List<String> getGuests() {
         return guests;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public void setPlaylistLink(List<String> playlistLink) {
+        this.playlistLink = playlistLink;
+    }
+
+    public void setPlaylistTitle(List<String> playlistTitle) {
+        this.playlistTitle = playlistTitle;
+    }
+
+    public void setGuests(List<String> guests) {
+        this.guests = guests;
     }
 
     public void addGuest(String t){
