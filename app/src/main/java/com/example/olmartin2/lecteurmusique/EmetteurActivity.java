@@ -7,20 +7,25 @@ import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.api.services.youtube.YouTube;
+import com.google.api.services.youtube.model.SearchResult;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmetteurActivity extends AppCompatActivity {
 
     Button send;
     EditText keyword;
+    Map<String,String> searchResult = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +55,27 @@ public class EmetteurActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         /*final List<Result> results = */
-                        youtubeManager.manage(keyword.getText().toString());
+                        searchResult=youtubeManager.manage(keyword.getText().toString());
+
+                        if(searchResult != null) {
+                            Map.Entry entry = (Map.Entry) searchResult.entrySet().iterator().next();
+                            String key = (String) entry.getKey();
+                            String value = (String) entry.getValue();
+                            System.out.println(" video trouvé ID : " + key + "; titre : " + value);
+
+                            //Ici il faut envoyer à firebase !
+
+                        }else{
+                            System.err.println("probleme de return");
+                        }
 
 
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
                                 //s'execute dans le main thread
+
+
 
                             }
                         });
