@@ -16,17 +16,19 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:id="@+id/item_play"
-        android:text="play"
-
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="40dp"
         android:id="@+id/item_delete"
         android:text="delete"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="false"
         />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:id="@+id/item_play"
+        android:text="play"
+
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/item_delete"
+        android:layout_toStartOf="@+id/item_delete" />
 </RelativeLayout>

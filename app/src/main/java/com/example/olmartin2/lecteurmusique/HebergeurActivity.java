@@ -37,7 +37,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private DatabaseReference dbRef = database.getReference("users").child(user.getUid());
-    private static Host h;
+    private static Playlist p;
     private ValueEventListener playlistListener;
 
 
@@ -46,10 +46,10 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
-        h = new Host("maxiaus");
+        p = new Playlist("maxiaus");
 
         try{
-            h.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
+            p.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
         }
         catch (Exception e){ }
 
@@ -60,14 +60,14 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         createPlaylistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef.setValue(h);
+                dbRef.setValue(p);
             }
         });
 
 
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new PlaylistAdaptateur(h.getPlaylistTitle(),h.getPlaylistLink()));
+        recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
     }
 
     @Override
@@ -80,8 +80,8 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                h = dataSnapshot.getValue(Host.class);
-                recyclerView.setAdapter(new PlaylistAdaptateur(h.getPlaylistTitle(),h.getPlaylistLink()));
+                p = dataSnapshot.getValue(Playlist.class);
+                recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
                 // ...
             }
 
@@ -102,7 +102,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         this.player = youTubePlayer;
         YouTubeBaseActivity y = new YouTubeBaseActivity();
         if(!b){
-            player.loadVideos(h.getPlaylistLink());
+            player.loadVideos(p.getPlaylistLink());
         }
     }
 
@@ -112,9 +112,9 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     }
 
     public static void changeMusic(String id){
-        for(int i = 0; i<h.getPlaylistLink().size(); i++){
-            if(h.getPlaylistLink().get(i).equals(id)){
-                player.cueVideos(h.getPlaylistLink(),i,0);
+        for(int i = 0; i< p.getPlaylistLink().size(); i++){
+            if(p.getPlaylistLink().get(i).equals(id)){
+                player.cueVideos(p.getPlaylistLink(),i,0);
                 player.play();
             }
         }
@@ -124,12 +124,12 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         int timeSafe = player.getCurrentTimeMillis();
         String videoSafe;
 
-        for(int i = 0; i<h.getPlaylistLink().size(); i++){
-            if(h.getPlaylistLink().get(i).equals(id)){
-                h.getPlaylistLink().remove(i);
-                h.getPlaylistTitle().remove(i);
-                recyclerView.setAdapter(new PlaylistAdaptateur(h.getPlaylistTitle(),h.getPlaylistLink()));
-                player.loadVideos(h.getPlaylistLink());
+        for(int i = 0; i< p.getPlaylistLink().size(); i++){
+            if(p.getPlaylistLink().get(i).equals(id)){
+                p.getPlaylistLink().remove(i);
+                p.getPlaylistTitle().remove(i);
+                recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
+                player.loadVideos(p.getPlaylistLink());
                 return;
             }
         }

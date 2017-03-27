@@ -14,7 +14,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.SearchResult;
+import com.google.api.services.youtube.model.*;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,10 +32,19 @@ public class EmetteurActivity extends AppCompatActivity {
     private EditText keyword;
     private Map<String,String> searchResult = null;
 
+    private Playlist p;
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference dbRef;
+    private ValueEventListener playlistListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emetteur);
+
+        p = new Playlist("ol");
 
         keyword = (EditText) findViewById(R.id.editText);
 
@@ -62,21 +76,16 @@ public class EmetteurActivity extends AppCompatActivity {
                             String key = (String) entry.getKey();
                             String value = (String) entry.getValue();
                             System.out.println(" video trouvé ID : " + key + "; titre : " + value);
-
-                            //Ici il faut envoyer à firebase !
-
+                            dbRef = database.getReference("users").child(R.id.id_party);
+                            dbRef.setValue(p);
                         }else{
                             System.err.println("probleme de return");
                         }
-
 
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
                                 //s'execute dans le main thread
-
-
-
                             }
                         });
                     }

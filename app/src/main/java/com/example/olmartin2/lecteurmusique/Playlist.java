@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Maxime on 3/25/2017.
  */
 
-public class Host {
+public class Playlist {
 
 
     private String pseudo;
@@ -20,16 +20,16 @@ public class Host {
 
     private List<String> guests = new ArrayList<>();
 
-    public Host(){
+    public Playlist(){
 
     }
 
-    public Host(String pseudo){
+    public Playlist(String pseudo){
         this();
         this.pseudo = pseudo;
     }
 
-    public Host(String pseudo, List<String> playlistLink, List<String> playlistTitle, List<String> guests) {
+    public Playlist(String pseudo, List<String> playlistLink, List<String> playlistTitle, List<String> guests) {
         this.pseudo = pseudo;
         this.playlistLink = playlistLink;
         this.playlistTitle = playlistTitle;
@@ -75,7 +75,7 @@ public class Host {
     }
 
     /**
-     * Enqueues a song to the playlist of the Host
+     * Enqueues a song to the playlist of the Playlist
      * @param link YouTube link of the song
      * @param title Title of the song
      * @throws Exception whenever the link or the title of the song is empty ;
