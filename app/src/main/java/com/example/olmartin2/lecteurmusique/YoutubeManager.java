@@ -2,6 +2,7 @@ package com.example.olmartin2.lecteurmusique;
 
 
 import android.util.Log;
+import android.util.Pair;
 import android.widget.Toast;
 
 import com.google.api.client.http.HttpRequest;
@@ -19,8 +20,10 @@ import com.google.api.client.auth.oauth2.Credential;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -36,8 +39,8 @@ public class YoutubeManager {
  //   private static final String PROPERTIES_FILENAME = Config.YOUTUBE_API_KEY;
 
 
-    public void manage(String queryTerm){
-
+    public Map<String, String> manage(String queryTerm){
+        Map<String,String> resultat = null;
         //String apiKey = Config.YOUTUBE_API_KEY;
         //queryTerm = "dvorak 9eme symphonie";
 
@@ -74,23 +77,24 @@ public class YoutubeManager {
             Log.d("fin appel","");
 
             if (searchResponse == null) {
-                return;
+                return null;
             }
 
-            List<SearchResult> searchListResponse = searchResponse.getItems();
+            //List<SearchResult> searchListResponse = searchResponse.getItems();
 
 
             List<SearchResult> searchResultList = searchResponse.getItems();
             if (searchResultList != null) {
-                prettyPrint(searchResultList.iterator(), queryTerm);
-
+                resultat = prettyPrint(searchResultList.iterator(), queryTerm);
+                return resultat;
             }
-
+            return null;
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        return null;
     }
 
 
@@ -110,33 +114,49 @@ public class YoutubeManager {
     }
     */
 
-    private static void prettyPrint(Iterator<SearchResult> iteratorSearchResults, String query) {
-
-        System.out.println("\n=============================================================");
-        System.out.println(
-                "   First " + NUMBER_OF_VIDEOS_RETURNED + " videos for search on \"" + query + "\".");
-        System.out.println("=============================================================\n");
+    private static Map<String, String> prettyPrint(Iterator<SearchResult> iteratorSearchResults, String query) {
+        Map<String,String> res = new HashMap<>();
+//        System.out.println("\n=============================================================");
+//        System.out.println(
+//                "   First " + NUMBER_OF_VIDEOS_RETURNED + " videos for search on \"" + query + "\".");
+//        System.out.println("=============================================================\n");
 
         if (!iteratorSearchResults.hasNext()) {
             System.out.println(" There aren't any results for your query.");
         }
 
-        while (iteratorSearchResults.hasNext()) {
+        SearchResult singleVideo = iteratorSearchResults.next();
+        ResourceId rId = singleVideo.getId();
 
-            SearchResult singleVideo = iteratorSearchResults.next();
-            ResourceId rId = singleVideo.getId();
+        iteratorSearchResults.hasNext();
 
-            // Confirm that the result represents a video. Otherwise, the
-            // item will not contain a video ID.
-            if (rId.getKind().equals("youtube#video")) {
-                Thumbnail thumbnail = singleVideo.getSnippet().getThumbnails().getDefault();
+        res.put(rId.getVideoId(),singleVideo.getSnippet().getTitle());
 
-                System.out.println(" Video Id : " + rId.getVideoId());
-                System.out.println(" Title: " + singleVideo.getSnippet().getTitle());
-                System.out.println(" Thumbnail: " + thumbnail.getUrl());
-                System.out.println("\n-------------------------------------------------------------\n");
-            }
-        }
+//        Map.Entry entry = (Map.Entry) res.entrySet().iterator().next();
+//        String key = (String) entry.getKey();
+//        String value = (String) entry.getValue();
+//        System.out.println(" video trouvé ID : " + key + "; titre : " + value);
+
+        return res;
+//        while (iteratorSearchResults.hasNext()) {
+//
+//            SearchResult singleVideo = iteratorSearchResults.next();
+//            ResourceId rId = singleVideo.getId();
+//
+//            // Confirm that the result represents a video. Otherwise, the
+//            // item will not contain a video ID.
+//            if (rId.getKind().equals("youtube#video")) {
+//                Thumbnail thumbnail = singleVideo.getSnippet().getThumbnails().getDefault();
+//
+//                System.out.println(" Video Id : " + rId.getVideoId());
+//                System.out.println(" Title: " + singleVideo.getSnippet().getTitle());
+//                System.out.println(" Thumbnail: " + thumbnail.getUrl());
+//                System.out.println("\n-------------------------------------------------------------\n");
+//            }
+//        }
+
+
+
     }
 
 
