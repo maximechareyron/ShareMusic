@@ -6,6 +6,7 @@ package com.example.olmartin2.lecteurmusique;
 import android.provider.ContactsContract;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class PlaylistAdaptateur extends RecyclerView.Adapter<PlaylistAdaptateur.
                 @Override
                 public void onClick(View v){
                     //faire jouer la musique
-                    System.out.println("Nom video : " + monItemName.getText().toString() + " ID : " + monItemID);
+                    Log.d("SYSO", "Nom video : " + monItemName.getText().toString() + " ID : " + monItemID);
                     HebergeurActivity.changeMusic(monItemID);
                 }
             });

@@ -27,21 +27,17 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     private YouTubePlayerView youtubeView;
 
     static RecyclerView recyclerView ;
-    //Liste qui aura tous les ID des videos utilisé par player
-    static List<String> playlistID = new ArrayList<>();
-    //Liste qui sert a l'affichage pour la recyclerView afin de savoir quelle est le nom de la video
-    static List<String> playlistName = new ArrayList<>();
 
-    public Button refreshButton;
+    private Button refreshButton;
     static YouTubePlayer player;
 
-    Button createPlaylistButton;
+    private Button createPlaylistButton;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference dbRef = database.getReference("users");
 
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private Host h;
+    private static Host h;
 
 
     @Override
@@ -73,36 +69,17 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
 
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
-
-
-        // Ici on instancie des videos pour le player Youtube, c'est ici qu'il faudra
-        // recevoir les vidéos avec firebase et les ajouter aux 2 listes
-        playlistName.add("Vivaldi");
-        playlistID.add("GRxofEmo3HA");
-        playlistName.add("Mozart");
-        playlistID.add("Rb0UmrCXxVA");
-        playlistName.add("Mozart requiem");
-        playlistID.add("Zi8vJ_lMxQI");
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        recyclerView.setAdapter(new PlaylistAdaptateur(playlistName,playlistID));
-
-
-
+        recyclerView.setAdapter(new PlaylistAdaptateur(h.getTitles(),h.getLinks()));
     }
 
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-
         this.player = youTubePlayer;
-
         YouTubeBaseActivity y = new YouTubeBaseActivity();
-
-
         if(!b){
-            player.loadVideos(playlistID);
+            player.loadVideos(h.getLinks());
         }
     }
 
@@ -112,26 +89,24 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     }
 
     public static void changeMusic(String id){
-
-        for(int i=0; i<playlistID.size();i++){
-            if(playlistID.get(i).equals(id)){
-                player.cueVideos(playlistID,i,0);
+        for(int i=0; i<h.getLinks().size();i++){
+            if(h.getLinks().get(i).equals(id)){
+                player.cueVideos(h.getLinks(),i,0);
                 player.play();
             }
         }
-
     }
 
     public static void deleteMusic(String id){
         int timeSafe = player.getCurrentTimeMillis();
         String videoSafe;
 
-        for(int i=0; i<playlistID.size();i++){
-            if(playlistID.get(i).equals(id)){
-                playlistID.remove(i);
-                playlistName.remove(i);
-                recyclerView.setAdapter(new PlaylistAdaptateur(playlistName,playlistID));
-                player.loadVideos(playlistID);
+        for(int i=0; i<h.getLinks().size();i++){
+            if(h.getLinks().get(i).equals(id)){
+                h.getLinks().remove(i);
+                h.getTitles().remove(i);
+                recyclerView.setAdapter(new PlaylistAdaptateur(h.getTitles(),h.getLinks()));
+                player.loadVideos(h.getLinks());
                 return;
             }
         }

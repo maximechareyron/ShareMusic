@@ -12,7 +12,10 @@ public class Host {
 
     private String pseudo;
 
+    //Liste qui aura tous les ID des videos jouées par player
     private List<String> playlistLink = new ArrayList<>();
+
+    //Liste qui aura tous les noms des musiques jouées par le player
     private List<String> playlistTitle = new ArrayList<>();
 
     private List<String> guests = new ArrayList<>();
