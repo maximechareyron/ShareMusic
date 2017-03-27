@@ -76,7 +76,7 @@ public class EmetteurActivity extends AppCompatActivity {
                             String key = (String) entry.getKey();
                             String value = (String) entry.getValue();
                             System.out.println(" video trouvé ID : " + key + "; titre : " + value);
-                            dbRef = database.getReference("users").child(R.id.id_party);
+                            dbRef = database.getReference("users").child("rKJZqDMk0lfomuFRxK08p1Z80xV2");
                             dbRef.setValue(p);
                         }else{
                             System.err.println("probleme de return");
