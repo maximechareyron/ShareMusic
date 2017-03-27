@@ -23,9 +23,9 @@ import java.util.Map;
 
 public class EmetteurActivity extends AppCompatActivity {
 
-    Button send;
-    EditText keyword;
-    Map<String,String> searchResult = null;
+    private Button send;
+    private EditText keyword;
+    private Map<String,String> searchResult = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

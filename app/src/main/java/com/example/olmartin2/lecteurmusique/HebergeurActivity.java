@@ -49,12 +49,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         h = new Host("maxiaus");
 
         try{
-
-            // h.enqueueSong("GRxofEmo3HA", "Four Seasons ~ Vivaldi");
-            h.enqueueSong("Rb0UmrCXxVA","Le Meilleur de Mozart");
-            h.enqueueSong("Zi8vJ_lMxQI", "Mozart - Requiem");
             h.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
-
         }
         catch (Exception e){ }
 
