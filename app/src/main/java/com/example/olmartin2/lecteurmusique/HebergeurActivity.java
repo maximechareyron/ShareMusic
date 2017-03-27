@@ -57,7 +57,8 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
         }
 
-
+        youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
+        youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
 
         createPlaylistButton = (Button) findViewById(R.id.create_playlist);
         createPlaylistButton.setOnClickListener(new View.OnClickListener() {
