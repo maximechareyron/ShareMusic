@@ -8,6 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.olmartin2.lecteurmusique.EmetteurActivity">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,6 +28,8 @@
         android:layout_above="@+id/textView"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText" />
+
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -108,7 +108,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-        System.err.println("ça marche pas :(");
+        Log.d("SYSO", "Erreur initialisation yt player");
     }
 
     public static void changeMusic(String id){
@@ -133,6 +133,6 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
                 return;
             }
         }
-        System.err.println("vidéo a supprimer inconnue");
+        Log.d("SYSO", "vidéo à supprimer inconnue");
     }
 }
