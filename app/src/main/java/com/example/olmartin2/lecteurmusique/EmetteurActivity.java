@@ -84,8 +84,9 @@ public class EmetteurActivity extends AppCompatActivity {
 
                             //String dbKey = dbRef.child("playlistLink").push().getKey();
                             Random r = new Random();
-                            int i = r.nextInt();
+                            int i = r.nextInt(10000);
                             if(i < 0) i = -i;
+                            i = 6;
                             String dbKey = Integer.valueOf(i).toString();
                             Map<String, Object> childUpdates = new HashMap<>();
                             childUpdates.put("/playlistLink/" + dbKey,key);
@@ -125,24 +126,5 @@ public class EmetteurActivity extends AppCompatActivity {
 
     public void onStart(){
         super.onStart();
-        /*
-        playlistListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                p = dataSnapshot.getValue(Playlist.class);
-                // ...
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("ERR", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        };
-
-        dbRef.addValueEventListener(playlistListener);
-        */
     }
 }

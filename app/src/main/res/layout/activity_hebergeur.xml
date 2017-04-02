@@ -9,16 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.olmartin2.lecteurmusique.HebergeurActivity">
 
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/connected_list"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/connected_list" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,6 +28,7 @@
         android:layout_below="@id/refresh"
         android:layout_alignParentLeft="true"
         android:id="@+id/list_music"
+        android:layout_above="@+id/youtube_view"
         >
 
     </android.support.v7.widget.RecyclerView>

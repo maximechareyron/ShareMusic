@@ -22,6 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
     private YouTubePlayerView youtubeView;
@@ -81,6 +84,9 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
                 p = dataSnapshot.getValue(Playlist.class);
+                /*Map<String, Object> objectMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                Object o = objectMap.values();
+                */
                 recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
                 // ...
             }

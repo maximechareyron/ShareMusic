@@ -21,14 +21,18 @@ public class Playlist {
 
     }
 
+    private int size;
+
+    public int getSize() { return playlistLink.size(); }
+
+
     public Playlist(String pseudo){
         this();
     }
 
-    public Playlist(String pseudo, List<String> playlistLink, List<String> playlistTitle, List<String> guests) {
+    public Playlist(List<String> playlistLink, List<String> playlistTitle, int size) {
         this.playlistLink = playlistLink;
         this.playlistTitle = playlistTitle;
-        this.guests = guests;
     }
 
 
@@ -38,10 +42,6 @@ public class Playlist {
 
     public List<String> getPlaylistLink(){ return playlistLink; }
 
-    public List<String> getGuests() {
-        return guests;
-    }
-
     public void setPlaylistLink(List<String> playlistLink) {
         this.playlistLink = playlistLink;
     }
@@ -50,17 +50,6 @@ public class Playlist {
         this.playlistTitle = playlistTitle;
     }
 
-    public void setGuests(List<String> guests) {
-        this.guests = guests;
-    }
-
-    public void addGuest(String t){
-        guests.add(t);
-    }
-
-    public void rmGuest(String t){
-        guests.remove(t);
-    }
 
     /**
      * Enqueues a song to the playlist of the Playlist
