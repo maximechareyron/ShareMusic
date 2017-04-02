@@ -75,9 +75,17 @@ public class EmetteurActivity extends AppCompatActivity {
                             Map.Entry entry = (Map.Entry) searchResult.entrySet().iterator().next();
                             String key = (String) entry.getKey();
                             String value = (String) entry.getValue();
-                            System.out.println(" video trouvé ID : " + key + "; titre : " + value);
+                            System.out.println(" video trouvée ID : " + key + "; titre : " + value);
                             dbRef = database.getReference("users").child("rKJZqDMk0lfomuFRxK08p1Z80xV2");
+
                             dbRef.setValue(p);
+                            try {
+                                p.enqueueSong(key, value);
+                            }
+                            catch(Exception e){
+
+                            }
+
                         }else{
                             System.err.println("probleme de return");
                         }
@@ -94,5 +102,27 @@ public class EmetteurActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void onStart(){
+        super.onStart();
+        playlistListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                p = dataSnapshot.getValue(Playlist.class);
+                // ...
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("ERR", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        };
+
+        dbRef.addValueEventListener(playlistListener);
+
     }
 }
