@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/bg_register"
     tools:context=".ManageAccActivity">
 
 
@@ -38,7 +39,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
             android:maxLines="1"
+            android:textColorHint="@android:color/white"
             android:singleLine="true" />
 
         <EditText
@@ -48,6 +51,8 @@
             android:hint="@string/hint_new_email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:singleLine="true" />
 
         <EditText
@@ -60,6 +65,8 @@
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:singleLine="true" />
 
         <EditText
@@ -72,6 +79,8 @@
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:singleLine="true" />
 
 
@@ -81,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/bg_login"
             android:text="@string/btn_change_email"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -92,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/bg_login"
             android:text="@string/btn_change_password"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -103,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/bg_login"
             android:text="@string/btn_send"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -120,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/bg_login"
             android:text="@string/btn_remove"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
