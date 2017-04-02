@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class EmetteurActivity extends AppCompatActivity {
 
@@ -81,7 +82,9 @@ public class EmetteurActivity extends AppCompatActivity {
 
                             dbRef = database.getReference("users").child(party.getText().toString());
 
-                            String dbKey = dbRef.child("playlistLink").push().getKey();
+                            //String dbKey = dbRef.child("playlistLink").push().getKey();
+                            Random r = new Random();
+                            String dbKey = Integer.valueOf(r.nextInt()).toString();
                             Map<String, Object> childUpdates = new HashMap<>();
                             childUpdates.put("/playlistLink/" + dbKey,key);
 
