@@ -15,8 +15,6 @@ public class Playlist {
     //Liste qui aura tous les noms des musiques jouées par le player
     private List<String> playlistTitle = new ArrayList<>();
 
-    private List<String> guests = new ArrayList<>();
-
     public Playlist(){
 
     }
@@ -24,11 +22,6 @@ public class Playlist {
     private int size;
 
     public int getSize() { return playlistLink.size(); }
-
-
-    public Playlist(String pseudo){
-        this();
-    }
 
     public Playlist(List<String> playlistLink, List<String> playlistTitle, int size) {
         this.playlistLink = playlistLink;

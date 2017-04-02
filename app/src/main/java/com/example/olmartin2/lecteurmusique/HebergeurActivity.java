@@ -82,20 +82,13 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         playlistListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
                 p = dataSnapshot.getValue(Playlist.class);
-                /*Map<String, Object> objectMap = (HashMap<String, Object>) dataSnapshot.getValue();
-                Object o = objectMap.values();
-                */
                 recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
-                // ...
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
                 Log.w("ERR", "loadPost:onCancelled", databaseError.toException());
-                // ...
             }
         };
 

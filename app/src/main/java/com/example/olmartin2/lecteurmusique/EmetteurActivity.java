@@ -40,7 +40,6 @@ public class EmetteurActivity extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference dbRef;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,13 +67,14 @@ public class EmetteurActivity extends AppCompatActivity {
                 Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
-                        /*final List<Result> results = */
                         searchResult=youtubeManager.manage(keyword.getText().toString());
 
                         if(searchResult != null) {
                             Map.Entry entry = (Map.Entry) searchResult.entrySet().iterator().next();
-                            String key = (String) entry.getKey();
-                            String value = (String) entry.getValue();
+                            final String key = (String) entry.getKey();
+                            final String value = (String) entry.getValue();
+
+                            String size;
 
                             showToast(value + " "+ getString(R.string.song_added));
                             Log.d("SYSO", "video trouvée ID : " + key + "; titre : " + value);
@@ -82,18 +82,28 @@ public class EmetteurActivity extends AppCompatActivity {
 
                             dbRef = database.getReference("users").child(party.getText().toString());
 
-                            //String dbKey = dbRef.child("playlistLink").push().getKey();
-                            Random r = new Random();
-                            int i = r.nextInt(10000);
-                            if(i < 0) i = -i;
-                            i = 6;
-                            String dbKey = Integer.valueOf(i).toString();
-                            Map<String, Object> childUpdates = new HashMap<>();
-                            childUpdates.put("/playlistLink/" + dbKey,key);
 
-                            childUpdates.put("/playlistTitle/" + dbKey,value);
-                            dbRef.updateChildren(childUpdates);
+                            dbRef.child("size").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    String taille = dataSnapshot.getValue().toString();
+                                    int i = Integer.parseInt(taille);
+                                    i++;
+                                    dbRef.child("size").setValue(i);
 
+                                    Map<String, Object> childUpdates = new HashMap<>();
+                                    childUpdates.put("/playlistLink/" + taille,key);
+
+                                    childUpdates.put("/playlistTitle/" + taille,value);
+                                    dbRef.updateChildren(childUpdates);
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
                         }else{
                             showToast(getString(R.string.no_title_found));
                             Log.d("SYSO","probleme de return");

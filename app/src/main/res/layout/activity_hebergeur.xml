@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/bg_register"
     tools:context="com.example.olmartin2.lecteurmusique.HebergeurActivity">
 
     <Button
@@ -27,6 +28,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/refresh"
         android:layout_alignParentLeft="true"
+
         android:id="@+id/list_music"
         android:layout_above="@+id/youtube_view"
         >

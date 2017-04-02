@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/bg_register"
     tools:context="com.example.olmartin2.lecteurmusique.MainActivity">
 
     <Button
@@ -16,6 +17,7 @@
         android:id="@+id/emetteur"
         android:layout_above="@+id/hebergeur"
         android:layout_centerHorizontal="true"
+        android:background="@color/bg_login"
         android:layout_marginBottom="75dp" />
 
     <Button
@@ -23,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_main_host"
         android:id="@+id/hebergeur"
-
+        android:background="@color/bg_login"
         android:layout_centerVertical="true"
         android:layout_alignRight="@+id/emetteur"
         android:layout_alignEnd="@+id/emetteur" />
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         android:text="Manage Account"
         android:id="@+id/manage_acc"
+        android:background="@color/bg_login"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
