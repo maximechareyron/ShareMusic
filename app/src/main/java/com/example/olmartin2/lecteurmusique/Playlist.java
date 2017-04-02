@@ -9,9 +9,6 @@ import java.util.List;
 
 public class Playlist {
 
-
-    private String pseudo;
-
     //Liste qui aura tous les ID des videos jouées par player
     private List<String> playlistLink = new ArrayList<>();
 
@@ -26,19 +23,14 @@ public class Playlist {
 
     public Playlist(String pseudo){
         this();
-        this.pseudo = pseudo;
     }
 
     public Playlist(String pseudo, List<String> playlistLink, List<String> playlistTitle, List<String> guests) {
-        this.pseudo = pseudo;
         this.playlistLink = playlistLink;
         this.playlistTitle = playlistTitle;
         this.guests = guests;
     }
 
-    public String getPseudo() {
-        return pseudo;
-    }
 
     public List<String> getPlaylistTitle() {
         return playlistTitle;
@@ -48,10 +40,6 @@ public class Playlist {
 
     public List<String> getGuests() {
         return guests;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
     }
 
     public void setPlaylistLink(List<String> playlistLink) {

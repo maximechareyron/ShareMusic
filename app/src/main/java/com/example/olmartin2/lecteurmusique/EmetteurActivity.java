@@ -35,19 +35,15 @@ public class EmetteurActivity extends AppCompatActivity {
 
     private Map<String,String> searchResult = null;
 
-    private Playlist p;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference dbRef;
-    private ValueEventListener playlistListener;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emetteur);
-
-        p = new Playlist("ol");
 
         keyword = (EditText) findViewById(R.id.editText);
         party = (EditText) findViewById(R.id.id_party);
@@ -63,7 +59,10 @@ public class EmetteurActivity extends AppCompatActivity {
                     return;
                 }
 
-
+                if(party.getText().toString().trim().isEmpty()){
+                    showToast(getString(R.string.no_party));
+                    return;
+                }
 
                 Runnable runnable = new Runnable() {
                     @Override
@@ -76,20 +75,18 @@ public class EmetteurActivity extends AppCompatActivity {
                             String key = (String) entry.getKey();
                             String value = (String) entry.getValue();
 
-                            //CharSequence text = value + getString(R.string.song_added);
                             showToast(value + " "+ getString(R.string.song_added));
                             Log.d("SYSO", "video trouvée ID : " + key + "; titre : " + value);
 
-                            //dbRef = database.getReference("users").child("rKJZqDMk0lfomuFRxK08p1Z80xV2");
 
-                            /*dbRef.setValue(p);
-                            try {
-                                p.enqueueSong(key, value);
-                            }
-                            catch(Exception e){
+                            dbRef = database.getReference("users").child(party.getText().toString());
 
-                            }
-                            */
+                            String dbKey = dbRef.child("playlistLink").push().getKey();
+                            Map<String, Object> childUpdates = new HashMap<>();
+                            childUpdates.put("/playlistLink/" + dbKey,key);
+
+                            childUpdates.put("/playlistTitle/" + dbKey,value);
+                            dbRef.updateChildren(childUpdates);
 
                         }else{
                             showToast(getString(R.string.no_title_found));

@@ -46,7 +46,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
-        p = new Playlist("maxiaus");
+        p = new Playlist();
 
         try{
             p.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
@@ -99,7 +99,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-        this.player = youTubePlayer;
+        player = youTubePlayer;
         YouTubeBaseActivity y = new YouTubeBaseActivity();
         if(!b){
             player.loadVideos(p.getPlaylistLink());
