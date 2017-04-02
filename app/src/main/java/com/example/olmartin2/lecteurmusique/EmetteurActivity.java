@@ -84,7 +84,9 @@ public class EmetteurActivity extends AppCompatActivity {
 
                             //String dbKey = dbRef.child("playlistLink").push().getKey();
                             Random r = new Random();
-                            String dbKey = Integer.valueOf(r.nextInt()).toString();
+                            int i = r.nextInt();
+                            if(i < 0) i = -i;
+                            String dbKey = Integer.valueOf(i).toString();
                             Map<String, Object> childUpdates = new HashMap<>();
                             childUpdates.put("/playlistLink/" + dbKey,key);
 
