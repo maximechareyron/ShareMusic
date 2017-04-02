@@ -19,9 +19,9 @@ public class Playlist {
 
     }
 
-    private int size;
+    private String size;
 
-    public int getSize() { return playlistLink.size(); }
+    public String getSize() { return String.valueOf(playlistLink.size()); }
 
     public Playlist(List<String> playlistLink, List<String> playlistTitle, int size) {
         this.playlistLink = playlistLink;

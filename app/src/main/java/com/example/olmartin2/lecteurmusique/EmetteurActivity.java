@@ -89,7 +89,7 @@ public class EmetteurActivity extends AppCompatActivity {
                                     String taille = dataSnapshot.getValue().toString();
                                     int i = Integer.parseInt(taille);
                                     i++;
-                                    dbRef.child("size").setValue(i);
+                                    dbRef.child("size").setValue(String.valueOf(i));
 
                                     Map<String, Object> childUpdates = new HashMap<>();
                                     childUpdates.put("/playlistLink/" + taille,key);
