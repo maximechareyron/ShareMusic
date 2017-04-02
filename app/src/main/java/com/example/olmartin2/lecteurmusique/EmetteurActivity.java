@@ -78,7 +78,7 @@ public class EmetteurActivity extends AppCompatActivity {
 
                             //CharSequence text = value + getString(R.string.song_added);
                             showToast(value + " "+ getString(R.string.song_added));
-                            System.out.println("video trouvée ID : " + key + "; titre : " + value);
+                            Log.d("SYSO", "video trouvée ID : " + key + "; titre : " + value);
 
                             //dbRef = database.getReference("users").child("rKJZqDMk0lfomuFRxK08p1Z80xV2");
 
@@ -92,6 +92,7 @@ public class EmetteurActivity extends AppCompatActivity {
                             */
 
                         }else{
+                            showToast(getString(R.string.no_title_found));
                             Log.d("SYSO","probleme de return");
                         }
 

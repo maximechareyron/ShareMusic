@@ -61,6 +61,7 @@
     <string name="action_settings">Settings</string>
     <string name="no_title">Vous n\'avez pas saisi de titre</string>
     <string name="song_added">a été ajouté à la playlist</string>
+    <string name="no_title_found">Aucun titre correspondant à votre recherche n\'a été trouvé</string>
 
 
 </resources>
