@@ -36,7 +36,8 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     private Button createPlaylistButton;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-    private DatabaseReference dbRef = database.getReference("users").child(user.getUid());
+    //private DatabaseReference dbRef = database.getReference("users").child(user.getUid());
+    private DatabaseReference dbRef = database.getReference("users").child(user.getEmail());
     private static Playlist p;
     private ValueEventListener playlistListener;
 
