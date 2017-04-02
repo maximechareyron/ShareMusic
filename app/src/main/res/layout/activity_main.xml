@@ -18,7 +18,9 @@
         android:layout_above="@+id/hebergeur"
         android:layout_centerHorizontal="true"
         android:background="@color/bg_login"
-        android:layout_marginBottom="75dp" />
+        android:layout_marginBottom="75dp"
+        android:width="250dp"
+        android:layout_centerVertical="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -28,7 +30,9 @@
         android:background="@color/bg_login"
         android:layout_centerVertical="true"
         android:layout_alignRight="@+id/emetteur"
-        android:layout_alignEnd="@+id/emetteur" />
+        android:layout_alignEnd="@+id/emetteur"
+        android:width="250dp"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -36,6 +40,11 @@
         android:text="Manage Account"
         android:id="@+id/manage_acc"
         android:background="@color/bg_login"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:width="250dp"
+        android:layout_centerVertical="true"
+        android:layout_above="@+id/emetteur"
+        android:layout_marginBottom="75dp"
+        />
 
 </RelativeLayout>
