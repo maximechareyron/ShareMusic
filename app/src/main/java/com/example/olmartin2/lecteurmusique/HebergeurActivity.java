@@ -5,15 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,21 +19,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
     private YouTubePlayerView youtubeView;
 
     static RecyclerView recyclerView ;
 
-    private Button refreshButton;
     static YouTubePlayer player;
+
+    private TextView linkToShare;
 
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-    private Button createPlaylistButton;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private DatabaseReference dbRef = database.getReference("users").child(user.getUid());
@@ -49,6 +43,9 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hebergeur);
 
+        linkToShare = (TextView) findViewById(R.id.userID);
+        linkToShare.setText("Lien de la playlist : " + user.getUid());
+
         p = new Playlist();
 
         try{
@@ -58,15 +55,6 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
         youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
-
-        createPlaylistButton = (Button) findViewById(R.id.create_playlist);
-        createPlaylistButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dbRef.setValue(p);
-            }
-        });
-
 
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -122,6 +110,8 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     public static void deleteMusic(String id){
         int timeSafe = player.getCurrentTimeMillis();
         String videoSafe;
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
 
         for(int i = 0; i< p.getPlaylistLink().size(); i++){
             if(p.getPlaylistLink().get(i).equals(id)){
@@ -129,6 +119,9 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
                 p.getPlaylistTitle().remove(i);
                 recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
                 player.loadVideos(p.getPlaylistLink());
+
+                dbRef.setValue(p);
+
                 return;
             }
         }
