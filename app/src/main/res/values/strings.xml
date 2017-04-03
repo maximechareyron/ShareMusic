@@ -2,7 +2,7 @@
     <string name="api_key" translatable="false">AIzaSyA7iJumNmqgAfQHNAB3AbPf3jYN9h1nQXI</string>
     <string name="app_name">Share Music</string>
     <string name="text_button_send">Envoyer</string>
-    <string name="text_transmitter">Saisir nom :</string>
+    <string name="text_transmitter">Saisir titre à jouer :</string>
     <string name="boutton_main_transmitter">Emetteur</string>
     <string name="button_main_host">Hébergeur</string>
     <string name="connected_list">Liste connecté(s)</string>
@@ -63,6 +63,9 @@
     <string name="song_added">a été ajouté à la playlist</string>
     <string name="no_title_found">Aucun titre correspondant à votre recherche n\'a été trouvé</string>
     <string name="no_party">Veuillez entrer un identifiant de playlist</string>
+    <string name="link_to_playlist">Lien de la playlist</string>
+    <string name="enter_playlist_id">ID de la playlist :</string>
+    <string name="manage_acc">Paramètres du compte</string>
 
 
 </resources>

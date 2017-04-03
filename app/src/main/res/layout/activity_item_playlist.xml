@@ -15,15 +15,6 @@
         android:layout_toLeftOf="@+id/item_play_img"
         android:layout_toStartOf="@+id/item_play_img" />
 
-
-    <!--<Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_play"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/item_delete" />
-        -->
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

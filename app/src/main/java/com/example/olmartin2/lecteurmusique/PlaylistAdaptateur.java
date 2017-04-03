@@ -3,15 +3,11 @@ package com.example.olmartin2.lecteurmusique;
 /**
  * Created by Olivier on 25/03/2017.
  */
-import android.media.Image;
-import android.provider.ContactsContract;
-import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 

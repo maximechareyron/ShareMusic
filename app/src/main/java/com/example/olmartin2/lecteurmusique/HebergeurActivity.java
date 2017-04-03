@@ -44,7 +44,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         setContentView(R.layout.activity_hebergeur);
 
         linkToShare = (TextView) findViewById(R.id.userID);
-        linkToShare.setText("Lien de la playlist : " + user.getUid());
+        linkToShare.setText(getString(R.string.link_to_playlist) + " : " + user.getUid());
 
         p = new Playlist();
 

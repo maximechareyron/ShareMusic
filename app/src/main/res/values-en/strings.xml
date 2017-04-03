@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Share Music</string>
     <string name="text_button_send">Send</string>
-    <string name="text_transmitter">Enter Link :</string>
+    <string name="text_transmitter">Enter query :</string>
     <string name="boutton_main_transmitter">Transmitter</string>
     <string name="button_main_host">Host</string>
     <string name="connected_list">Connected users</string>
@@ -53,4 +53,11 @@
     <string name="profile_deleted">Profile was successfully deleted!</string>
     <string name="profile_deleted_fail">Failed to delete your account. Try again later!</string>
     <string name="button_create_playlist">Create a playlist</string>
+    <string name="song_added">was added to playlist</string>
+    <string name="no_title_found">No matching song were found</string>
+    <string name="no_title">Please enter a title</string>
+    <string name="no_party">Please enter a playlist ID</string>
+    <string name="link_to_playlist">Link to this playlist</string>
+    <string name="enter_playlist_id">Enter playlist ID</string>
+    <string name="manage_acc">Manage my account</string>
 </resources>
