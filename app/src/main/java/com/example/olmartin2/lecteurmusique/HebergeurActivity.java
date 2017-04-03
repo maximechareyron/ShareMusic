@@ -70,7 +70,13 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         playlistListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                p = dataSnapshot.getValue(Playlist.class);
+                Playlist tmp = dataSnapshot.getValue(Playlist.class);
+                if(tmp == null){
+                    dbRef.setValue(p);
+                }
+                else{
+                    p = tmp;
+                }
                 recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
             }
 
