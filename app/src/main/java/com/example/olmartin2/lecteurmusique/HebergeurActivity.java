@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -28,6 +31,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
     static YouTubePlayer player;
 
     private TextView linkToShare;
+    private ImageButton addButton;
 
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -46,6 +50,15 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         linkToShare = (TextView) findViewById(R.id.userID);
         linkToShare.setText(getString(R.string.link_to_playlist) + " : " + user.getUid());
 
+        addButton = (ImageButton) findViewById(R.id.add_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("Bouton PLUS");
+                //builder.show();
+            }
+        });
+
         p = new Playlist();
 
         try{
@@ -59,6 +72,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
+
     }
 
     @Override
@@ -133,4 +147,16 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
         }
         Log.d("SYSO", "vidéo à supprimer inconnue");
     }
+
+    // Permet d'afficher des Toasts depuis n'importe quel thread
+    public void showToast(final String toast)
+    {
+        runOnUiThread(new Runnable() {
+            public void run()
+            {
+                Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
+
