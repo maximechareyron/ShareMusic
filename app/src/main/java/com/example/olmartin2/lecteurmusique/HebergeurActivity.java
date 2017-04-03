@@ -61,13 +61,7 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
 
         p = new Playlist();
 
-        try{
-            p.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
-        }
-        catch (Exception e){ }
-
         youtubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
-        youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
 
         recyclerView  = (RecyclerView) findViewById(R.id.list_music);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -86,10 +80,15 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Playlist tmp = dataSnapshot.getValue(Playlist.class);
                 if(tmp == null){
+                    try {
+                        p.enqueueSong("vHqtJH2f1Yk", "Gustavo Dudamel : Dvorak - Symphony no. 9 - 4th movement - Allegro con fuoco");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     dbRef.setValue(p);
                 }
                 else{
-                    p = tmp;
+                     p = tmp;
                 }
                 recyclerView.setAdapter(new PlaylistAdaptateur(p.getPlaylistTitle(), p.getPlaylistLink()));
             }
@@ -99,8 +98,9 @@ public class HebergeurActivity extends YouTubeBaseActivity implements YouTubePla
                 Log.w("ERR", "loadPost:onCancelled", databaseError.toException());
             }
         };
-
         dbRef.addValueEventListener(playlistListener);
+
+        youtubeView.initialize(Config.YOUTUBE_API_KEY,this);
     }
 
 
